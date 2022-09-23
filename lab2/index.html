@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+    <style>
+    body{
+    background-color: lightyellow;
+    }
+    div {
+    background-color: lightcoral;
+    width: 960;
+    height: 100;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    #result {
+        color: brown;
+    }
+    .try {
+        font-size: 1.5em;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>ทายซิ</h1>
+        <p>เรามีตัวเลข 1-100 ลองทายซิว่าเลขเลขอะไร ให้ทายได้ไม่เกิน 10 ครั้ง</p>
+        <p id="result">ลองซิ</p>
+        <p class="try">คุณทายไป 0 ครั้ง</p>
+        <p class="try"></p>
+    </div>
+    <script>
+        let number;
+        let guesses;
+        let tries;
+        let answer;
+
+        number = Math.floor(Math.random()*100)+1;
+        guesses = []
+        for(tries = 1; tries <= 10; tries++) {
+            answer = +prompt('ทายมาเลย');
+            guesses.push(answer);
+            if(+answer > number) {
+                alert('มากไป');
+            }
+            else if(+answer < number) {
+            alert('น้อยไป');
+            }
+            else{
+             alert('ถูกต้องแล้วค้าบ');
+                break;
+            }
+        }
+        document.querySelector('.try')[0].innerHTML = 'คุณทายไป' + tries + 'ครั้ง';
+        document.querySelector('.try')[1].innerHTML = guesses;
+    </script>
+</body>
+</html>
